@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    
+    <title>Home</title>
+
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1 class="h1 my-5 text-center ">Blogs posted by curious people</h1>
+    <div class="container mb-4">
+        <div class="row row-cols-4 ">
+            <% allBlog.forEach(blog => { %>
+                <div class="card col p-3" >
+                    <img src="<%= blog.coverImageURL %>" class="card-img-top " alt="...">
+                    <div class="card-body ">
+                        <h5 class="card-title"><%= blog.title.substring(0,30) %> ...</h5>
+                        <p class="card-text"><%= blog.body.substring(0, 60) %> ... </p>
+
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- <h4><%- JSON.stringify(user) %> </h4> -->
+    <%- include('./partials/scripts') %>
+
+</body>
+</html>
